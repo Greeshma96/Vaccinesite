@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RegistrationForm</title>
+    </head>
+    <body style="background-color:darkgray;">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name=username placeholder="enter your username"><br><br>
+            <input type="text" name=first_name placeholder="enter your first_name"><br><br>
+           <label for="place">Choose a place:</label>
+             <select name="place">
+                <option value="Trivandrum">Trivandrum</option>
+                <option value="Cochin">Cochin</option>
+                <option value="Palakkad">Palakkad</option>
+                <option value="Kollam">Kollam</option>
+                <option value="Pathanamthitta">Pathanamthitta</option>
+                <option value="Idukki">Idukki</option>
+                <option value="Kozhikode">Kozhikode</option> 
+             </select><br><br>
+            <input type="number" name=contact_number placeholder="contact_number"><br><br>
+            <input type="password" name=password placeholder="enter your password"><br><br>
+            <input type="password" name=confirm_password placeholder="enter your confirm_password"><br><br>
+            <a href="{% url 'vaccapp:login'%}"><button  type="button">submit</button></a> <br>
+            <!-- <input type="Submit">  -->
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <h3>Registration Form</h3>
+    </head>
+    <body>
+        <form method="POST" >
+            {% csrf_token %}
+            <input type="text" name=username placeholder="enter your name"><br>
+            <input type="number" name=age placeholder="enter your age"><br>
+            
+            <label for="Place">Choose a Place:</label>
+            <select name="Place">
+                <option value="Trivandrum">Trivandrum</option>
+                <option value="Cochin">Cochin</option>
+                <option value="Palakkad">Palakkad</option>
+                <option value="Kollam">Kollam</option>
+                <option value="Pathanamthitta">Pathanamthitta</option>
+                <option value="Idukki">Idukki</option>
+                <option value="Kozhikode">Kozhikode</option>
+                
+            </select><br>
+            <input type="number" name=contact_number placeholder="enter your contact_number"><br>
+            <input type="password" name=password placeholder="enter your password"><br>
+             <a href="{% url 'vaccapp:login'%}"><button  type="button">submit</button></a> -->
+            <!-- <input type="submit"> -->
+        <!-- </form> -->
+    <!-- </body> -->
+<!-- </html> --> 

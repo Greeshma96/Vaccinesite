@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+var citiesByDistrict = {
+Trivandrum: ["kazhakootam","fort","pattom"],
+Cochin: ["kakkanadu","palarivattom","mgroad"],
+Kollam: ["thenmala","mayyanadu","ayoor"],
+Palakkadu: ["chittor","vadakancherry","pattambi"],
+Kozhikode: ["balusery","chelanur","vadakara"],
+Pathanamthitta:["adoor","ranni"],
+Idukki:["adimaly","alakode"]
+}
+function makeSubmenu(value) {
+if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+else {
+var citiesOptions = "";
+for(cityId in citiesByDistrict[value]) {
+citiesOptions+="<option>"+citiesByDistrict[value][cityId]+"</option>";
+}
+document.getElementById("citySelect").innerHTML = citiesOptions;
+}
+}
+function displaySelected() { var country = document.getElementById("countrySelect").value;
+var city = document.getElementById("citySelect").value;
+alert(country+"\n"+city);
+}
+function resetSelection() {
+document.getElementById("countrySelect").selectedIndex = 0;
+document.getElementById("citySelect").selectedIndex = 0;
+}
+</script>
+</head>
+<body style="background-color:lightgray" onload="resetSelection()">
+    <h2 style="font-size:35px;background-color: aqua;font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;">Patient Details</h2>
+    <input type="text" name=name placeholder="enter your name"><br><br>
+    <input type="number" name=age placeholder="enter your age"><br><br>
+    <label for="gender">Gender:</label>
+<select gender>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+    </select><br><br>
+    <input type="text" name=address placeholder="enter your address"><br><br>
+<label for="district">Choose a district:</label>
+<select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+<option value="" disabled selected>Choose district</option>
+<option>Trivandrum</option>
+<option>Cochin</option>
+<option>Kollam</option>
+<option>Palakkadu</option>
+<option>Kozhikode</option>
+<option>Pathanamthitta</option>
+<option>Idukki</option>
+</select><br><br>
+<label for="place">Choose a place:</label>
+<select id="citySelect" size="1" >
+<option value="" disabled selected>Choose place</option>
+<option></option>
+</select><br><br>
+<input type="text" name=contact_number placeholder="enter your contact_number"><br><br>
+<input type="text" name=Bloodgroup placeholder="Bloodgroup"><br><br>
+            <label for=vaccines_taken>choose your vaccine status</label><br>
+            <input type="radio"  value=1><label for="vaccines_taken">1</label>
+            <input type="radio"  value=2><label for="vaccines_taken">2</label>
+            <input type="radio"  value="no"><label for="vaccines_taken">None</label>
+            <br><br>
+            <label for=allergies>if any allergies</label><br>
+            <input type="checkbox" value="allergies">
+            <label for="allergies"> yes</label>
+            <input type="checkbox"  value="allergies">
+            <label for="allergies"> no</label><br><br>
+            <a href="{% url 'vaccapp:final'%}"><button  type="button">Submit</button></a>
+            <a href="{% url 'vaccapp:logout'%}"><button  type="button">Logout</button></a>
+<!-- <button onclick="displaySelected()">show selected</button> -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <body> -->
+        <!-- <form method="POST">
+            {% csrf_token %}
+             <h5>Patient Details</h5> -->
+            <!-- <h2 style="font-size:35px;background-color: aqua;font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;">Patient Details</h2>
+            <input type="text" name=first_name placeholder="enter your firstname"><br><br>
+            <input type="number" name=age placeholder="enter your age"><br><br>
+            <label for="place">Choose a place:</label>
+            <select id="place">
+                <option value="Trivandrum">Trivandrum</option>
+                <option value="Cochin">Cochin</option>
+                <option value="Palakkad">Palakkad</option>
+                <option value="Kollam">Kollam</option>
+                <option value="Pathanamthitta">Pathanamthitta</option>
+                <option value="Idukki">Idukki</option>
+                <option value="Kozhikode">Kozhikode</option> --> 
+            <!-- </select><br><br>
+            <label for="center">Choose a center:</label>
+            <select id ="center">
+                <option value="pattom">Pattom</option>
+                <option value="kazhakootam">Kazhakootam</option>
+                <option value="fort">Fort</option>
+                <option>Kakkanadu</option>
+                <option>Palarivattom</option>
+                <option>Mg road</option> -->
+        
+            <!-- </select>
+                <option>ottapalam</option>
+                <option>shornor</option>
+                <option>pattambhi</option>
+                <option>perinadu</option>
+                <option>thrikadavoor</option>
+                <option>karunagapally</option>  -->
+            
+            <!-- <br>
+            <input type="text" name=contact_number placeholder="enter your contact_number"><br><br>
+            <label for=vaccines_taken>choose your vaccine status</label><br>
+            <input type="radio"  value=1><label for="vaccines_taken">1</label>
+            <input type="radio"  value=2><label for="vaccines_taken">2</label>
+            <input type="radio"  value="no"><label for="vaccines_taken">None</label>
+            <br><br>
+            <label for=allergies>if any allergies</label><br>
+            <input type="checkbox" value="allergies">
+            <label for="allergies"> yes</label>
+            <input type="checkbox"  value="allergies">
+            <label for="allergies"> no</label><br><br>
+            <input type="Submit"> 
+            <a href="{% url 'vaccapp:logout'%}"><button  type="button">Logout</button></a>
+        </form>
+    </body>
+</html> -->

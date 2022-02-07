@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+        <body style="background-color: darkgray;">
+            <form method="POST" class="form-group">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter Username"><br><br>
+            <input type="password" name="password" placeholder="Enter Password"> (required characters)<br><br>
+            <input type="password" name="confirm_password" placeholder="Enter Password again"><br><br>
+             <!-- <a href="{% url 'vaccapp:booking'%}"><button  type="button">login</button></a>  --> 
+            <input type="Submit"> 
+            <a href="{% url 'vaccapp:register'%}"><button  type="button">Register</button></a>
+            </form>
+        </body>
+        </html>
+
+        
